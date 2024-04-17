@@ -36,7 +36,7 @@ public class LoginSteps extends Base {
         CurrentPage.As(LoginPage.class).Login(table.get(1).get(0).toString(), table.get(1).get(1).toString());*/
 
         CucumberUtil.ConvertDataTableToDict(table);
-        CurrentPage.As(LoginPage.class).Login(CucumberUtil.GetCellValue("UserName")
+        CurrentPage.As(LoginPage.class).LoginM(CucumberUtil.GetCellValue("UserName")
                 ,CucumberUtil.GetCellValue("Password"));
         Thread.sleep(3000);
     }

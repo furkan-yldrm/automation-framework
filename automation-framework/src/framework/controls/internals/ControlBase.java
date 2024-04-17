@@ -99,7 +99,7 @@ public class ControlBase implements Control {
 
     @Override
     public WebElement getWrappedElement() {
-        return null;
+        return element;
     }
 
     @Override
