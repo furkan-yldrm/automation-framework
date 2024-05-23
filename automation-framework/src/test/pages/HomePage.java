@@ -1,6 +1,7 @@
 package test.pages;
 
 import framework.base.BasePage;
+import framework.controls.elements.HyperLink;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -8,26 +9,25 @@ import org.openqa.selenium.support.How;
 
 public class HomePage extends BasePage   {
 
-    public HomePage() {
-
-    }
-
     @FindBy(how = How.LINK_TEXT, using = "Login")
-    public WebElement lnkLogin;
+    public HyperLink lnkLogin;
+
     @FindBy(how = How.LINK_TEXT, using = "Employee List")
-    public WebElement lnkEmployeeList;
+    public HyperLink lnkEmployeeList;
 
     @FindBy(how = How.XPATH, using = "//a[@title='Manage']")
     public WebElement lnkUserName;
-    public LoginPage clickLogin() {
-        lnkLogin.click();
+
+    public LoginPage ClickLogin() {
+        lnkLogin.ClickLink();
         return GetInstance(LoginPage.class);
     }
-    public boolean IsLogin(){
+
+    public boolean IsLogin() {
         return lnkLogin.isDisplayed();
     }
-    public String GetLoggedInUser(){
 
+    public String GetLoggedInUser() {
         return lnkUserName.getText();
     }
 }

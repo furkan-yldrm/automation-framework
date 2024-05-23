@@ -13,48 +13,23 @@ import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage extends BasePage {
 
-    public LoginPage() {
+    @FindBy(how = How.NAME, using = "UserName")
+    public TextBox txtUserName;
 
+    @FindBy(how = How.NAME, using = "Password")
+    public TextBox txtPassword;
+
+    @FindBy(how = How.CSS, using = "[class*='btn-default']")
+    public Button btnLogin;
+
+    public void Login(String userName, String password) {
+        txtUserName.EnterText(userName);
+        txtPassword.EnterText(password);
     }
-        @FindBy(how = How.NAME, using = "UserName")
-        public WebElement txtUsername;
 
-        @FindBy(how = How.NAME, using = "Password")
-        public WebElement txtPassword;
-
-        @FindBy(how = How.CSS, using = "[class*='btn-default']")
-        public WebElement btnLogin;
-
-        @FindBy(how = How.NAME, using = "UserName")
-        public WebElement txtUsernameM;
-
-        @FindBy(how = How.NAME, using = "Password")
-        public WebElement txtPasswordM;
-
-        @FindBy(how = How.CSS, using = "[class*='btn-default']")
-        public WebElement btnLoginM;
-
-    public void Login(String userName, String password){
-            txtUsername.sendKeys(userName);
-            txtPassword.sendKeys(password);
-        }
-
-        public void LoginM(String userName, String password){
-
-        TextBox txtUser = new TextBoxBase(txtUsernameM);
-        txtUser.EnterText(userName);
-
-        TextBox txtPass = new TextBoxBase(txtPasswordM);
-        txtPass.EnterText(password);
-
-        }
-
-    public HomePage ClickLogin(){
-
-        Button btn = new ButtonBase(btnLoginM);
-        btn.performSubmit();
-       // btnLogin.submit();
+    public HomePage ClickLogin() {
+        btnLogin.performSubmit();
         return GetInstance(HomePage.class);
-        }
+    }
 
 }

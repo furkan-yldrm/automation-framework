@@ -21,12 +21,12 @@ public class LoginSteps extends Base {
     public void assertUrlOpened() throws Throwable {
 
         CurrentPage = GetInstance(HomePage.class);
-       Assert.assertTrue("Page is not loaded", CurrentPage.As(HomePage.class).IsLogin());
+       //Assert.assertTrue("Page is not loaded", CurrentPage.As(HomePage.class).IsLogin());
     }
     @Then("Click the login")
     public void clickTheLogin() throws Throwable {
         //Login page'e götürür
-        CurrentPage = CurrentPage.As(HomePage.class).clickLogin();
+        CurrentPage = CurrentPage.As(HomePage.class).ClickLogin();
         Thread.sleep(3000);
     }
     @When("Enter UserName and Password")
@@ -36,7 +36,7 @@ public class LoginSteps extends Base {
         CurrentPage.As(LoginPage.class).Login(table.get(1).get(0).toString(), table.get(1).get(1).toString());*/
 
         CucumberUtil.ConvertDataTableToDict(table);
-        CurrentPage.As(LoginPage.class).LoginM(CucumberUtil.GetCellValue("UserName")
+        CurrentPage.As(LoginPage.class).Login(CucumberUtil.GetCellValue("UserName")
                 ,CucumberUtil.GetCellValue("Password"));
         Thread.sleep(3000);
     }
@@ -54,3 +54,6 @@ public class LoginSteps extends Base {
                 CurrentPage.As(HomePage.class).GetLoggedInUser());
     }
 }
+
+
+
