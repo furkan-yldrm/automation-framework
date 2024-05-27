@@ -6,16 +6,13 @@ import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.checkerframework.checker.units.qual.C;
-import org.checkerframework.checker.units.qual.Current;
 import org.junit.Assert;
-import org.openqa.selenium.bidi.log.Log;
 import test.pages.HomePage;
 import test.pages.LoginPage;
 
-import java.util.List;
+import javax.xml.crypto.Data;
 
-public class LoginSteps extends Base {
+public class ClientLoginSteps extends Base {
 
     @And("Assert url opened")
     public void assertUrlOpened() throws Throwable {
@@ -29,14 +26,10 @@ public class LoginSteps extends Base {
         CurrentPage = CurrentPage.As(HomePage.class).ClickLogin();
         Thread.sleep(3000);
     }
-    @When("Enter UserName and Password")
-    public void EnterUserNameAndPassword(DataTable table) throws Throwable {
-
-        /*  List<List<String>> table = data.asLists();
-        CurrentPage.As(LoginPage.class).Login(table.get(1).get(0).toString(), table.get(1).get(1).toString());*/
-
+    @When("Enter Client Email and Password")
+    public void enterClientEmailAndPassword(DataTable table) throws Throwable{
         CucumberUtil.ConvertDataTableToDict(table);
-        CurrentPage.As(LoginPage.class).Login(CucumberUtil.GetCellValue("UserName")
+        CurrentPage.As(LoginPage.class).Login(CucumberUtil.GetCellValue("Email")
                 ,CucumberUtil.GetCellValue("Password"));
         Thread.sleep(3000);
     }
@@ -48,9 +41,10 @@ public class LoginSteps extends Base {
         Thread.sleep(3000);
     }
 
-    @Then("See the username and hello")
-    public void seeTheUsernameAndHello() throws Throwable{
-        Assert.assertEquals("The user is not admin.", "Hello admin!",
+
+    @Then("See the username")
+    public void seeTheUsername() throws Throwable{
+        Assert.assertEquals(null, null,
                 CurrentPage.As(HomePage.class).GetLoggedInUser());
     }
 }

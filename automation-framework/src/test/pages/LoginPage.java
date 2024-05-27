@@ -13,17 +13,26 @@ import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage extends BasePage {
 
-    @FindBy(how = How.NAME, using = "UserName")
+    /*@FindBy(how = How.NAME, using = "UserName")
     public TextBox txtUserName;
 
     @FindBy(how = How.NAME, using = "Password")
     public TextBox txtPassword;
 
     @FindBy(how = How.CSS, using = "[class*='btn-default']")
+    public WebElement btnLogin;*/
+
+    @FindBy(how = How.ID, using = "Email")
+    public TextBox txtEmail;
+
+    @FindBy(how = How.ID, using = "Password")
+    public TextBox txtPassword;
+
+    @FindBy(how = How.ID, using = "Login1")
     public Button btnLogin;
 
-    public void Login(String userName, String password) {
-        txtUserName.EnterText(userName);
+    public void Login(String email, String password) {
+        txtEmail.EnterText(email);
         txtPassword.EnterText(password);
     }
 
