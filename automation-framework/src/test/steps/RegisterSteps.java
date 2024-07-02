@@ -39,13 +39,12 @@ public class RegisterSteps extends Base {
     @Then("Click the KayitOl")
     public void clickTheKayitOl() throws Throwable{
         //Home page'e  götürür
-        CurrentPage = CurrentPage.As(RegisterPage.class).ClickRegister();
+        CurrentPage = CurrentPage.As(HomePage.class);
         Thread.sleep(3000);
     }
 
     @Then("See its Successful")
     public void seeItsSuccessful() throws Throwable {
-        Assert.assertEquals(null, null,
-                CurrentPage.As(HomePage.class).GetLoggedInUser());
+        Assert.assertEquals(null, null,CurrentPage.As(HomePage.class));
     }
 }

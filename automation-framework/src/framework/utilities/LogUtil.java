@@ -10,13 +10,10 @@ import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class LogUtil {
-
     ZonedDateTime date = ZonedDateTime.now();
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("ddMMyyyyHHMMSS");
     String fileNameFormat = date.format(formatter);
-
     private BufferedWriter bufferedWriter = null;
-
     public void CreateLogFile() throws IOException {
             try{
                 File dir = new File("C:/Logs");
@@ -24,12 +21,10 @@ public class LogUtil {
                     dir.mkdir();
                 }
                 File logFile = new File(dir + "/" + fileNameFormat + ".log");
-
                 FileWriter fileWriter = new FileWriter(logFile.getAbsoluteFile());
                 bufferedWriter = new BufferedWriter(fileWriter);
             }
             catch (Exception ex){
-
             }
     }
     public void Write(String message){
@@ -41,7 +36,6 @@ public class LogUtil {
             bufferedWriter.flush();
         }
         catch (Exception ex){
-
         }
     }
 }

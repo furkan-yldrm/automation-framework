@@ -7,19 +7,14 @@ public class ButtonBase extends ControlBase implements Button {
     public ButtonBase(WebElement element) {
         super(element);
     }
-
     @Override
     public void performClick() {
         getWrappedElement().click();
     }
-
     @Override
-    public String getButtonText() {
-        return getWrappedElement().getText();
-    }
-
+    public String getButtonText() { return getWrappedElement().getText();}
     @Override
-    public void performSubmit() {
-        getWrappedElement().submit();
-    }
+    public void performSubmit() { getWrappedElement().submit();}
 }
+
+

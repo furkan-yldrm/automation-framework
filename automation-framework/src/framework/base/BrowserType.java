@@ -3,5 +3,7 @@ package framework.base;
 public enum BrowserType{
 
     Firefox,
-    Chrome
+    Chrome,
+    Edge,
+    Safari
 }

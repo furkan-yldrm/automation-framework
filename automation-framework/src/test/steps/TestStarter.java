@@ -5,6 +5,7 @@ import framework.base.DriverContext;
 import framework.base.FrameworkInitialize;
 import framework.utilities.LogUtil;
 import io.cucumber.java.Before;
+import org.openqa.selenium.JavascriptExecutor;
 
 
 import java.io.IOException;
@@ -19,8 +20,9 @@ public class TestStarter extends FrameworkInitialize {
 
         InitBrowser(BrowserType.Firefox);
         logUtil.Write("Tarayıcı Tipi belirlendi");
-        DriverContext.Browser.GoToUrl("http://eaapp.somee.com/");
+        DriverContext.Browser.GoToUrl("https://testsitem.com.tr/");
         logUtil.Write("Hedef adrese gidildi");
+
 
        /* ExcelUtil
        try{

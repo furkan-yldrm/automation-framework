@@ -9,3 +9,4 @@ Feature: ClientLoginFailedFeature
       | ghezzal@gmail.com   | wrongPassword |
     Then  Try to Login
     Then See the error
+    Then end

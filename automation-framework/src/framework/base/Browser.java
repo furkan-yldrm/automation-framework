@@ -4,7 +4,6 @@ import org.openqa.selenium.WebDriver;
 
 public class Browser {
     private WebDriver _driver;
-    public BrowserType Type;
 
     public Browser(WebDriver driver) {
         _driver = driver;

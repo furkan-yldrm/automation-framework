@@ -15,19 +15,14 @@ public class ExcelUtil {
     //Create a Constructor
     public ExcelUtil(String ExcelSheetPath) throws BiffException, IOException
     {
-
         wrkbook = Workbook.getWorkbook(new File(ExcelSheetPath));
-
         wrksheet = wrkbook.getSheet("Sayfa1");
-
         ColumnDictionary();
     }
-
     public static int RowCount()
     {
         return wrksheet.getRows();
     }
-
     private static String ReadCell(int column,int row)
     {
         return wrksheet.getCell(column,row).getContents();
@@ -35,16 +30,13 @@ public class ExcelUtil {
     public static String ReadCell(String columnName, int rowNumber){
         return ReadCell(GetCell(columnName),rowNumber);
     }
-
     private static void ColumnDictionary()
     {
-
         for(int col=0;col < wrksheet.getColumns();col++)
         {
             dict.put(ReadCell(col,0), col);
         }
     }
-
     private static int GetCell(String colName)
     {
         try {
@@ -53,7 +45,6 @@ public class ExcelUtil {
             return value;
         } catch (NullPointerException e) {
             return (0);
-
         }
     }
 }

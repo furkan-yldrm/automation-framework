@@ -1,5 +1,6 @@
 package framework.base;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -25,5 +26,7 @@ public class FrameworkInitialize extends Base{
         }
         DriverContext.setDriver(driver);
         DriverContext.Browser = new Browser(driver);
+
+        JavascriptExecutor js = (JavascriptExecutor)driver;
     }
 }

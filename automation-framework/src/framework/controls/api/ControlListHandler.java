@@ -31,15 +31,7 @@ public class ControlListHandler implements InvocationHandler {
 
     }
 
-    /**
-     * Executed on invoke of the requested proxy. Used to gather a list of wrapped WebElements.
-     *
-     * @param o       object to invoke on
-     * @param method  method to invoke
-     * @param objects parameters for method
-     * @return return value from method
-     * @throws Throwable when frightened.
-     */
+
     @Override
     public Object invoke(Object o, Method method, Object[] objects) throws Throwable {
         List<Object> wrappedList = new ArrayList<Object>();
